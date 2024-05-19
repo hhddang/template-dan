@@ -1,0 +1,37 @@
+<div class="sidebar" [ngClass]="isOpened ? 'opened' : 'closed'">
+  <div class="content">
+    <div class="tab-list">
+      <button
+        (click)="mode = 'trick'"
+        [ngClass]="mode == 'trick' ? 'active' : ''"
+      >
+        Tricks
+      </button>
+      <button
+        (click)="mode = 'template'"
+        [ngClass]="mode == 'template' ? 'active' : ''"
+      >
+        Template
+      </button>
+    </div>
+
+    <div *ngIf="mode == 'trick'" class="item-list">
+      <div *ngFor="let item of itemList" class="item">
+        <img src="{{ item.imageUrl }}" alt="" />
+        <p>{{ item.name }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="mode == 'template'" class="item-list">b</div>
+  </div>
+
+  <div class="sidebar-btn-container">
+    <button
+      class="sidebar-btn"
+      [ngClass]="isOpened ? 'opened' : 'closed'"
+      (click)="toggleIsOpened()"
+    >
+      <div class="sidebar-btn-icon"></div>
+    </button>
+  </div>
+</div>

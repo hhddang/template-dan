@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #e6e6e6;
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  cursor: grab;
+}
