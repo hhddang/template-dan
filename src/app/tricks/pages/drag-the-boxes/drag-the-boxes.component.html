@@ -1,21 +1,12 @@
 <div class="drag-the-boxes">
   <div class="title">Drag the boxes</div>
   <div class="container-list">
-    <div
-      class="container"
-      *ngFor="let container of containerList; index as i"
-      #container
-      (mouseenter)="handleMouseEnter(i + 1 + '')"
-    >
+    <div class="container" *ngFor="let container of containerList; index as i" #container>
       <p class="title">Container {{ i + 1 }}</p>
-      <div
-        class="box"
-        *ngFor="let box of container"
-        [ngStyle]="{ background: box }"
-        (mousedown)="handleMouseDown()"
-        (mousemove)="handleMouseMove($event, box)"
-        (mouseup)="handleMouseUp()"
-      ></div>
+      <div class="box" *ngFor="let box of container" [ngStyle]="{ background: box }" (mousedown)="handleMouseDown()"
+        (mousemove)="handleMouseMove($event)" (mouseup)="handleMouseUp($event, box)" (touchstart)="handleTouchStart()"
+        (touchmove)="handleTouchMove($event)" (touchend)="handleTouchEnd($event, box)">
+      </div>
     </div>
   </div>
 </div>

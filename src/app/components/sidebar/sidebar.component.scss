@@ -29,6 +29,7 @@
         color: #c0c0c0;
         cursor: pointer;
         transition: 0.2s;
+
         &:hover,
         &.active {
           color: black;
@@ -62,7 +63,7 @@
     height: 60px;
     background: linear-gradient(to bottom, transparent, white 40%);
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
 
     .sidebar-btn {
