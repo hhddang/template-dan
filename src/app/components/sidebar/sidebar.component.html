@@ -1,22 +1,16 @@
 <div class="sidebar" [ngClass]="isOpened ? 'opened' : 'closed'">
   <div class="content">
     <div class="tab-list">
-      <button
-        (click)="mode = 'trick'"
-        [ngClass]="mode == 'trick' ? 'active' : ''"
-      >
+      <button (click)="mode = 'trick'" [ngClass]="mode == 'trick' ? 'active' : ''">
         Tricks
       </button>
-      <button
-        (click)="mode = 'template'"
-        [ngClass]="mode == 'template' ? 'active' : ''"
-      >
+      <button (click)="mode = 'template'" [ngClass]="mode == 'template' ? 'active' : ''">
         Template
       </button>
     </div>
 
     <div *ngIf="mode == 'trick'" class="item-list">
-      <div *ngFor="let item of itemList" class="item">
+      <div *ngFor="let item of itemList" class="item" routerLink={{item.path}}>
         <img src="{{ item.imageUrl }}" alt="" />
         <p>{{ item.name }}</p>
       </div>
@@ -26,11 +20,7 @@
   </div>
 
   <div class="sidebar-btn-container">
-    <button
-      class="sidebar-btn"
-      [ngClass]="isOpened ? 'opened' : 'closed'"
-      (click)="toggleIsOpened()"
-    >
+    <button class="sidebar-btn" [ngClass]="isOpened ? 'opened' : 'closed'" (click)="toggleIsOpened()">
       <div class="sidebar-btn-icon"></div>
     </button>
   </div>

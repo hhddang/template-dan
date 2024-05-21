@@ -1,0 +1,17 @@
+<div #carousel class="carousel" (mouseup)="handleSwipeEnd($event)" (mouseleave)="handleSwipeEnd($event)">
+    <div class="title">Carousel</div>
+    <div #slideBtnsWrapper class="slider-buttons-wrapper">
+        <button #slideBtn (click)="slidePrev()">Prev</button>
+        <div #viewbox class="viewbox">
+            <div #slider class="slider" (mousedown)="handleSwipeStart($event)" (mousemove)="handleSwipeMove($event)">
+                <img class="slide" *ngFor="let image of imageList" src={{image}} draggable="false">
+            </div>
+        </div>
+        <button #slideBtn (click)="slideNext()">Next</button>
+
+        <div #mobileSlideBtns class="mobile-btn">
+            <button (click)="slidePrev()">Prev</button>
+            <button (click)="slideNext()">Next</button>
+        </div>
+    </div>
+</div>
