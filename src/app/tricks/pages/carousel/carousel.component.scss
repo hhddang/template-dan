@@ -1,63 +1,63 @@
 .carousel {
-    width: 100%;
-    height: 100%;
-    background: rgb(214, 154, 154);
+  width: 100%;
+  height: 100%;
+  background: rgb(214, 154, 154);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  --slide-width: 300px; // Override by TS
+  --slide-height: 200px; // Override by TS
+  --slide-per-show: 3; // Override by TS
+
+  .title {
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: rgb(241, 241, 138) 0 2px 6px;
+  }
+
+  .slider-buttons-wrapper {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
-    justify-content: center;
+    gap: 20px;
     align-items: center;
-    --slide-width: 300px; // Override by TS
-    --slide-height: 200px; // Override by TS
-    --slide-per-show: 3; // Override by TS
 
-    .title {
-        font-size: 40px;
-        font-weight: bold;
-        text-shadow: white 2px 2px 20px;
+    button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: none;
+      background: white;
+      font-weight: bold;
+      text-align: center;
+      border: 7px solid rgb(241, 241, 138);
+      box-shadow: white 0 0 8px;
     }
 
-    .slider-buttons-wrapper {
+    .mobile-btn {
+      display: flex;
+      gap: 20px;
+    }
+
+    .viewbox {
+      width: calc(var(--slide-per-show) * var(--slide-width));
+      box-shadow: white 0 0 8px;
+      border: 7px solid rgb(241, 241, 138);
+      border-radius: 4px;
+      overflow: hidden;
+      background: rgba($color: #000000, $alpha: 0.6);
+
+      .slider {
         display: flex;
-        gap: 20px;
-        align-items: center;
 
-        button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: none;
-            background: white;
-            font-weight: bold;
-            text-align: center;
-            border: 7px solid rgb(241, 241, 138);
-            box-shadow: white 0 0 10px 3px;
+        .slide {
+          width: var(--slide-width);
+          height: var(--slide-height);
+          border: 1px solid white;
         }
-
-        .mobile-btn {
-            display: flex;
-            gap: 20px;
-        }
-
-        .viewbox {
-            width: calc(var(--slide-per-show) * var(--slide-width));
-            box-shadow: white 0 0 10px 3px;
-            border: 7px solid rgb(241, 241, 138);
-            border-radius: 12px;
-            overflow: hidden;
-            background: rgba($color: #000000, $alpha: .6);
-
-            .slider {
-                display: flex;
-
-                .slide {
-                    width: var(--slide-width);
-                    height: var(--slide-height);
-                    border: 1px solid white;
-                    // padding: 2px;
-                }
-            }
-        }
+      }
     }
-
+  }
 }

@@ -1,10 +1,17 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { IMAGE_LIST } from './data';
 
 @Component({
   selector: 'app-carousels',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss']
+  styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent implements AfterViewInit {
   imageList = IMAGE_LIST;
@@ -27,9 +34,18 @@ export class CarouselComponent implements AfterViewInit {
   @ViewChild('mobileSlideBtns') mobileSlideBtns!: ElementRef<HTMLElement>;
 
   ngAfterViewInit(): void {
-    this.carousel.nativeElement.style.setProperty('--slide-width', this.slideWidth + 'px');
-    this.carousel.nativeElement.style.setProperty('--slide-height', this.slideHeight + 'px');
-    this.carousel.nativeElement.style.setProperty('--slide-per-show', this.slidesPerShow.toString());
+    this.carousel.nativeElement.style.setProperty(
+      '--slide-width',
+      this.slideWidth + 'px'
+    );
+    this.carousel.nativeElement.style.setProperty(
+      '--slide-height',
+      this.slideHeight + 'px'
+    );
+    this.carousel.nativeElement.style.setProperty(
+      '--slide-per-show',
+      this.slidesPerShow.toString()
+    );
     this.slider.nativeElement.style.marginLeft = '0px';
     this.slider.nativeElement.style.marginTop = '0px';
     this.slider.nativeElement.style.transition = `all ${this.transitionTime}ms`;
@@ -55,27 +71,31 @@ export class CarouselComponent implements AfterViewInit {
 
     if (direction === 'vertical') {
       this.viewbox.nativeElement.style.width = this.slideWidth + 'px';
-      this.viewbox.nativeElement.style.height = this.slideHeight * this.slidesPerShow + 'px';
+      this.viewbox.nativeElement.style.height =
+        this.slideHeight * this.slidesPerShow + 'px';
       this.slider.nativeElement.style.flexDirection = 'column';
       this.slider.nativeElement.style.marginLeft = '0px';
       this.slideBtnsWrapper.nativeElement.style.flexDirection = 'column';
       this.mobileSlideBtns.nativeElement.style.display = 'flex';
-      this.slideBtns.forEach(slideBtn => slideBtn.nativeElement.style.display = 'none');
+      this.slideBtns.forEach(
+        (slideBtn) => (slideBtn.nativeElement.style.display = 'none')
+      );
     } else {
-      this.viewbox.nativeElement.style.width = this.slideWidth * this.slidesPerShow + 'px';
+      this.viewbox.nativeElement.style.width =
+        this.slideWidth * this.slidesPerShow + 'px';
       this.viewbox.nativeElement.style.height = this.slideHeight + 'px';
       this.slider.nativeElement.style.flexDirection = 'row';
       this.slider.nativeElement.style.marginTop = '0px';
       this.slideBtnsWrapper.nativeElement.style.flexDirection = 'row';
       this.mobileSlideBtns.nativeElement.style.display = 'none';
-      this.slideBtns.forEach(slideBtn => slideBtn.nativeElement.style.display = 'block');
+      this.slideBtns.forEach(
+        (slideBtn) => (slideBtn.nativeElement.style.display = 'block')
+      );
     }
     this.slideTo(this.activeSlide);
     setTimeout(() => {
       this.slider.nativeElement.style.transition = `all ${this.transitionTime}ms`;
     }, this.transitionTime);
-
-    // this.slideTo(this.activeSlide);
   }
 
   handleSwipeStart(event: MouseEvent) {
@@ -87,10 +107,12 @@ export class CarouselComponent implements AfterViewInit {
     if (!this.onDragging) return;
     if (this.direction === 'vertical') {
       let offset = event.clientY - this.startSwipeEvent.clientY;
-      this.slider.nativeElement.style.marginTop = this.marginOffset + offset + 'px';
+      this.slider.nativeElement.style.marginTop =
+        this.marginOffset + offset + 'px';
     } else {
       let offset = event.clientX - this.startSwipeEvent.clientX;
-      this.slider.nativeElement.style.marginLeft = this.marginOffset + offset + 'px';
+      this.slider.nativeElement.style.marginLeft =
+        this.marginOffset + offset + 'px';
     }
   }
 
@@ -98,15 +120,20 @@ export class CarouselComponent implements AfterViewInit {
     this.onDragging = false;
 
     if (this.direction === 'vertical') {
-      this.marginOffset = Number(this.slider.nativeElement.style.marginTop.replace('px', ''));
+      this.marginOffset = Number(
+        this.slider.nativeElement.style.marginTop.replace('px', '')
+      );
       this.activeSlide = Math.round(this.marginOffset / this.slideHeight) * -1;
     } else {
-      this.marginOffset = Number(this.slider.nativeElement.style.marginLeft.replace('px', ''));
+      this.marginOffset = Number(
+        this.slider.nativeElement.style.marginLeft.replace('px', '')
+      );
       this.activeSlide = Math.round(this.marginOffset / this.slideWidth) * -1;
     }
 
     if (this.activeSlide < 0) this.activeSlide = 0;
-    if (this.activeSlide > this.imageList.length - this.slidesPerShow) this.activeSlide = this.imageList.length - this.slidesPerShow;
+    if (this.activeSlide > this.imageList.length - this.slidesPerShow)
+      this.activeSlide = this.imageList.length - this.slidesPerShow;
     this.slideTo(this.activeSlide);
   }
 
