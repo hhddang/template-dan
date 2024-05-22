@@ -10,7 +10,7 @@ export const TRICK_ITEM_LIST: ISidebarItem[] = [
   },
   {
     id: 'drag-the-boxes',
-    imageUrl: 'https://i.ytimg.com/vi/EFiO6jWAU-w/maxresdefault.jpg',
+    imageUrl: 'assets/tricks/carousel.png',
     name: 'Carousel',
     type: 'trick',
     path: '/tricks/carousel',

@@ -20,7 +20,7 @@ export class CarouselComponent implements AfterViewInit {
   slideWidth: number = 300;
   slideHeight: number = 200;
   transitionTime: number = 300;
-  autoPlay: number = 2000;
+  autoPlay: number = 2500;
 
   onDragging: boolean = false;
   startSwipeEvent!: MouseEvent;
