@@ -1,17 +1,16 @@
-<div #carousel class="carousel" (mouseup)="handleSwipeEnd($event)" (mouseleave)="handleSwipeEnd($event)">
+<div class="carousel" (mouseup)="handleSwipeEnd($event)" (mouseleave)="handleSwipeEnd($event)">
     <div class="title">Carousel</div>
-    <div #slideBtnsWrapper class="slider-buttons-wrapper">
-        <button #slideBtn (click)="slidePrev()">Prev</button>
-        <div #viewbox class="viewbox">
-            <div #slider class="slider" (mousedown)="handleSwipeStart($event)" (mousemove)="handleSwipeMove($event)">
-                <img class="slide" *ngFor="let image of imageList" src={{image}} draggable="false">
-            </div>
-        </div>
-        <button #slideBtn (click)="slideNext()">Next</button>
 
-        <div #mobileSlideBtns class="mobile-btn">
-            <button (click)="slidePrev()">Prev</button>
-            <button (click)="slideNext()">Next</button>
+    <div #slider class="slider">
+        <div #slideList class="slide-list" (mousedown)="handleSwipeStart($event)" (mousemove)="handleSwipeMove($event)">
+            <img class="slide" *ngFor="let image of imageList" src={{image}} draggable="false">
         </div>
+    </div>
+
+    <div class="control-btns">
+        <button class="arrow-btn" (click)="slidePrev()">&lt;</button>
+        <button *ngFor="let item of [].constructor(imageList.length - slidesPerShow + 1);index as i" class="slide-btn"
+            [ngClass]="activeSlide === i ? 'active' : ''" (click)="slideTo(i)"></button>
+        <button class="arrow-btn" (click)=" slideNext()">&gt;</button>
     </div>
 </div>
