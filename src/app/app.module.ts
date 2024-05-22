@@ -7,11 +7,12 @@ import { SidebarLayoutComponent } from './layouts/sidebar-layout/sidebar-layout.
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TricksRoutingModule } from './tricks/tricks-routing.module';
 import { TricksModule } from './tricks/tricks.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent, SidebarLayoutComponent, SidebarComponent],
-  imports: [BrowserModule, AppRoutingModule, TricksRoutingModule, TricksModule],
+  imports: [BrowserModule, AppRoutingModule, TricksRoutingModule, TricksModule, RouterModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
