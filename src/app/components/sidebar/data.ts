@@ -9,18 +9,18 @@ export const TRICK_ITEM_LIST: ISidebarItem[] = [
     path: '/tricks/drag-the-boxes',
   },
   {
-    id: 'drag-the-boxes',
+    id: 'carousel',
     imageUrl: 'assets/tricks/carousel.png',
     name: 'Carousel',
     type: 'trick',
     path: '/tricks/carousel',
   },
   {
-    id: 'drag-the-boxes',
-    imageUrl: 'https://i.ytimg.com/vi/EFiO6jWAU-w/maxresdefault.jpg',
-    name: 'Drag the boxes',
+    id: 'drag-bar',
+    imageUrl: 'assets/tricks/drag-bar.png',
+    name: 'Drag bar',
     type: 'trick',
-    path: '/tricks/drag-the-boxes',
+    path: '/tricks/drag-bar',
   },
   {
     id: 'drag-the-boxes',
