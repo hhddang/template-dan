@@ -1,18 +1,15 @@
 <div class="drag-bar-page">
     <div class="title">Drag bar</div>
-    <div #container class="container" (mouseup)="handleDragEnd()" (mousemove)="handleDragMove($event)"
+    <div #container class="container" (mousemove)="handleDragMove($event)" (mouseup)="handleDragEnd()"
         (mouseleave)="handleDragEnd()">
-        <div class="row">
-            <div class="section" style="background-color: rgb(255, 127, 127);">Hey!</div>
-            <div class="section" style="background-color: rgb(127, 127, 255);">Let's</div>
-        </div>
-        <div class="row">
-            <div class="section" style="background-color: rgb(92 160 92);">drag</div>
-            <div class="section" style="background-color: rgb(189 189 65);">the bars</div>
-        </div>
 
+        <div #top #left class="section" style="background-color: rgb(255, 127, 127);">Hey!</div>
+        <div #top #right class="section" style="background-color: rgb(127, 127, 255);">Let's</div>
+        <div #bottom #left class="section" style="background-color: rgb(92 160 92);">drag</div>
+        <div #bottom #right class="section" style="background-color: rgb(189 189 65);">the bars</div>
 
-        <div #verticalBar class="drag-bar vertical" (mousedown)="hanldeDragStart('vertical')"></div>
-        <div #horizontalBar class="drag-bar horizontal" (mousedown)="hanldeDragStart('horizontal')"></div>
+        <div #verticalBar class="drag-bar vertical" draggable="false" (mousedown)="hanldeDragStart('vertical')"></div>
+        <div #horizontalBar class="drag-bar horizontal" draggable="false" (mousedown)="hanldeDragStart('horizontal')">
+        </div>
     </div>
 </div>

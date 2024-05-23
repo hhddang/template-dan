@@ -17,7 +17,7 @@ export const TRICK_ITEM_LIST: ISidebarItem[] = [
   },
   {
     id: 'drag-bar',
-    imageUrl: 'assets/tricks/drag-the-boxes.png',
+    imageUrl: 'assets/tricks/drag-bar.png',
     name: 'Drag bar',
     type: 'trick',
     path: '/tricks/drag-bar',
