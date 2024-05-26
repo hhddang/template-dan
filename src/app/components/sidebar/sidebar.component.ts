@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ISidebarItem } from 'src/app/types';
-import { TRICK_ITEM_LIST } from './data';
+import { TRICK_LIST, TEMPLATE_LIST } from './data';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,7 +9,8 @@ import { TRICK_ITEM_LIST } from './data';
 })
 export class SidebarComponent {
   isOpened: boolean = false;
-  itemList: ISidebarItem[] = TRICK_ITEM_LIST;
+  trickList: ISidebarItem[] = TRICK_LIST;
+  templateList: ISidebarItem[] = TEMPLATE_LIST;
   mode: 'trick' | 'template' = 'trick';
 
   public toggleIsOpened() {
