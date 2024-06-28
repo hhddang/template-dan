@@ -10,13 +10,18 @@
     </div>
 
     <div *ngIf="mode == 'trick'" class="item-list">
-      <div *ngFor="let item of itemList" class="item" routerLink={{item.path}}>
+      <div *ngFor="let item of trickList" class="item" routerLink="{{ item.path }}">
         <img src="{{ item.imageUrl }}" alt="" />
         <p>{{ item.name }}</p>
       </div>
     </div>
 
-    <div *ngIf="mode == 'template'" class="item-list">b</div>
+    <div *ngIf="mode == 'template'" class="item-list">
+      <div *ngFor="let item of templateList" class="item" routerLink="{{ item.path }}">
+        <img src="{{ item.imageUrl }}" alt="" />
+        <p>{{ item.name }}</p>
+      </div>
+    </div>
   </div>
 
   <div class="sidebar-btn-container">
