@@ -7,6 +7,7 @@
   left: 0;
   top: 0;
   transition: all 0.5s;
+  z-index: 999;
 
   &.closed {
     transform: translateX(-100%);
@@ -78,6 +79,7 @@
       position: relative;
       display: grid;
       place-content: center;
+      cursor: pointer;
 
       &.closed {
         transform: translateX(calc(100% + 20px)) rotate(180deg);

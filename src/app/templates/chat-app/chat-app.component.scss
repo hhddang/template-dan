@@ -1,0 +1,123 @@
+.chat-app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  --primary: #323b92;
+
+  .avatar {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+  }
+
+  .user-panel {
+    height: 100%;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 3px #c8c8c8;
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+    .user {
+      display: flex;
+      background: var(--primary);
+      border-radius: 20px;
+      overflow: hidden;
+      align-items: center;
+      padding: 8px;
+      gap: 20px;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateX(3px);
+      }
+
+      .name {
+        font-size: 20px;
+        color: white;
+      }
+    }
+  }
+
+  .chat-panel {
+    height: 100%;
+    flex: 1;
+    background: var(--primary);
+
+    .no-user {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      color: var(--primary);
+    }
+
+    .has-user {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      .header {
+        width: 100%;
+        padding: 5px 10px;
+        display: flex;
+        background: white;
+        align-items: center;
+        gap: 20px;
+        font-size: 20px;
+        color: var(--primary);
+      }
+      .messages {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        
+        .message {
+          width: max-content;
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0 0 2px white;
+          background: white;
+          &.your-msg {
+            align-self: flex-end;
+          }
+        }
+      }
+      .input {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: white;
+        display: flex;
+        padding: 10px;
+        gap: 15px;
+
+        .input-text {
+          flex: 1;
+          border: none;
+          outline: none;
+          font-size: 18px;
+        }
+        .send-btn {
+          width: 120px;
+          height: 50px;
+          background: var(--primary);
+          border-radius: 10px;
+          color: white;
+          font-size: 20px;
+          cursor: pointer;
+          transition: all 0.1s;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}

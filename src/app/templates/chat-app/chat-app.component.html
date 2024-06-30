@@ -1,1 +1,36 @@
-<p>chat-app works!</p>
+<div class="chat-app">
+  <div class="user-panel">
+    <div *ngFor="let user of users" class="user" (click)="selectUser(user)">
+      <img class="avatar" src="{{ user.avatar }}" alt="{{ user.name }}" />
+      <p class="name">{{ user.name }}</p>
+    </div>
+  </div>
+  <div class="chat-panel">
+    <div *ngIf="userOnChat; else noUserOnChat" class="has-user">
+      <div class="header">
+        <img
+          class="avatar"
+          src="{{ userOnChat.avatar }}"
+          alt="{{ userOnChat.name }}"
+        />
+        <p class="name">{{ userOnChat.name }}</p>
+      </div>
+      <div class="messages">
+        <p
+          *ngFor="let msg of messages"
+          class="message"
+          [ngClass]="msg.from === 'U' ? 'your-msg' : 'other-msg'"
+        >
+          {{ msg.text }}
+        </p>
+      </div>
+      <div class="input">
+        <input type="text" class="input-text" placeholder="Type here" />
+        <button class="send-btn">Send</button>
+      </div>
+    </div>
+    <ng-template #noUserOnChat>
+      <div class="no-user">Please select a user to chat</div>
+    </ng-template>
+  </div>
+</div>
